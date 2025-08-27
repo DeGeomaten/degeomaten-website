@@ -1,4 +1,6 @@
 <script lang="ts">
+  export const prerender = true;
+
   import { Accordion } from "bits-ui";
   import CaretDown from "phosphor-svelte/lib/CaretDown";
  
