@@ -1,6 +1,4 @@
 <script lang="ts">
-  export const prerender = true;
-
   import { Accordion } from "bits-ui";
   import CaretDown from "phosphor-svelte/lib/CaretDown";
  
@@ -14,6 +12,11 @@
       value: "2",
       title: "Wat doen de Geomaten?",
       content: "De Geomaten vertalen ruimtelijke data naar duidelijke kaarten en interactieve toepassingen. We maken complexe informatie begrijpelijk en aantrekkelijk, zodat organisaties en onderzoekers sneller inzichten krijgen en beter kunnen vertellen wat hun data betekent. Of het nu gaat om een klein GIS-klusje of een creatieve visualisatie: wij zetten onze kennis en energie graag in om ruimtelijke verhalen tot leven te brengen."
+    },
+    {
+      value: "3",
+      title: "Wat kunnen de Geomaten?",
+      content: "Veel!"
     }
   ];
 </script>
@@ -39,10 +42,10 @@
         </Accordion.Trigger>
       </Accordion.Header>
       <Accordion.Content
-        class="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm tracking-[-0.01em]"
+        class="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-[16px] tracking-[-0.01em]"
       >
         <div class="pb-[25px]">
-          {@html item.content}
+          {item.content}
         </div>
       </Accordion.Content>
     </Accordion.Item>
