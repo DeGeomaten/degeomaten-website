@@ -1,22 +1,49 @@
+<link rel="stylesheet" href="https://use.typekit.net/sdt5qgt.css">
+
 <script>
-    // import { onMount } from 'svelte';
+    import { fly, draw } from 'svelte/transition';
+    import { cubicOut } from 'svelte/easing';
     import Accordion from "$lib/Accordion.svelte";
+    import AccordionItem from "$lib/AccordionItem.svelte";
+    import Gallery from "$lib/Gallery.svelte";
     import { ArrowElbowRight, Envelope, InstagramLogo, LinkedinLogo } from "phosphor-svelte";
 
-    // let mounted = false;
-    // onMount(() => { mounted = true });
+
+    let visible = $state(false);
+
+    $effect(() => {
+        visible = true;
+    })
+
 </script>
 
-<div class="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 text-center">
-    <!-- Logo -->
-    <img src="logo.svg" alt="Logo" class="w-72 sm:w-72 md:w-72 mb-6" />
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+    header {
+        background: #F6F6EC;
+    }
 
-    <!-- Subtitel -->
-    <h2 class="text-sm sm:text-base md:text-base font-light mb-4 text-gray-400">
-        Geovisualisatie • GIS-oplossingen • Interactieve media
-    </h2>
+    main h2 {
+        font-family: "inter", sans-serif;
+        font-weight: 1000 !important;
+        font-size: 42px;
+        color: #DDDBC1;
+        /* line-height: 60px; */
+    }
 
-    <!-- Social links -->
+    main {
+        background: url("achtergrondkaart.webp");
+        background-size: cover;
+        background-position: 70% center;
+    }
+
+    footer {
+        background: #6A0DAD;
+    }
+</style>
+
+<header class="flex flex-col items-center justify-center h-60 px-4 sm:px-6 lg:px-8 text-center">
+    <img src="logo.svg" alt="" class="w-72 sm:w-72 md:w-72 mt-10">
     <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 mt-6">
         <p class="text-sm sm:text-base font-light flex items-center gap-1 mb-2 sm:mb-0">
             <ArrowElbowRight class="inline size-5 sm:size-6" />
@@ -32,14 +59,71 @@
             <Envelope class="size-5 sm:size-6"></Envelope>
         </a>
     </div>
+</header>
+<main class="w-full h-150 p-10">
+    <div class="overflow-hidden h-16">
+        {#if visible}
+        <h2 transition:fly={{ y: 80, duration: 700, easing: cubicOut }}>MODERNE</h2>
+        {/if}
+    </div>
+    <div class="overflow-hidden h-16">
+        {#if visible}
+            <h2 transition:fly={{ y: 80, duration: 700, delay: 200, easing: cubicOut }}>CARTOGRAFIE</h2>
+        {/if}
+    </div>
 
-    <!-- {#if mounted} -->
-        <Accordion />
-    <!-- {/if} -->
-</div>
+    {#if visible}
+    <svg class="w-80"
+        id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.99 9.83">
+        <defs>
+            <style>
+            .cls-1 {
+                fill: none;
+                stroke: #F6F6EC;
+                stroke-miterlimit: 10;
+                stroke-width: .25px;
+            }
+            </style>
+        </defs>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M.12,5.16C.12,2.48,1.96.63,4.38.63c1.28,0,2.19.28,2.77.53v1.98h-.07c-.66-1.42-1.45-2.34-2.73-2.34-1.55,0-2.3,1.85-2.3,4.34s.65,4.34,2.28,4.34c.83,0,1.25-.43,1.25-1.13v-1.36c0-.89-.05-1.39-.74-1.44v-.07h2.88v.07c-.36.05-.38.55-.38,1.44v1.79c-.67.46-1.77.86-3.06.86C1.67,9.65.12,7.87.12,5.16Z"/>
+        <path transition:draw={{delay: 500+10}} class="cls-1" d="M7.96,9.5v-.07c.82,0,.86-.6.86-1.49V2.33c0-.89-.05-1.49-.86-1.49v-.07h3.5v.07c-.82,0-.86.6-.86,1.49v5.61c0,.89.05,1.49.86,1.49v.07h-3.5Z"/>
+        <path transition:draw={{delay: 500+10+10}} class="cls-1" d="M12.06,9.22l-.08-2.21h.07c.59,1.57,1.37,2.47,2.58,2.47.91,0,1.67-.6,1.67-1.61s-.88-1.49-1.85-1.96l-.64-.3c-.73-.36-1.64-.92-1.64-2.36,0-1.51,1.04-2.63,2.6-2.63.66,0,1.64.2,2.22.42v1.76h-.07c-.65-1.37-1.31-2.01-2.25-2.01s-1.48.6-1.48,1.5c0,.95.72,1.31,1.49,1.68l.62.3c1.04.49,2.01,1.06,2.01,2.58,0,1.61-1.18,2.79-2.93,2.79-.68,0-1.75-.19-2.33-.43Z"/>
+        <path transition:draw={{delay: 500+10+10+10}} class="cls-1" d="M29.03,8.66c-.53.66-.98.98-1.6.98-.74,0-1.22-.36-1.88-.95-.7.56-1.56.95-2.61.95-1.82,0-2.81-1.14-2.81-2.34,0-1.01.71-1.92,1.95-2.34-.5-.78-.79-1.52-.79-2.23,0-1.33,1.03-2.11,2.4-2.11s2.15.71,2.15,1.67-.89,1.82-2.19,2.17c.67.83,1.63,1.77,2.84,2.93.24-.32.42-.67.56-1.01.19-.43.29-.85.29-1.22,0-.65-.31-1.1-1-1.28v-.07h2.31v.07c-.65.11-.77,1.22-1.39,2.52-.18.37-.38.76-.64,1.12.77.73,1.39,1.25,1.9,1.25.17,0,.32-.06.48-.17l.02.07ZM23.92,9c.52,0,1.01-.18,1.44-.47-1.32-1.2-2.43-2.34-3.17-3.42-.34.35-.5.92-.5,1.47,0,1.54,1.1,2.41,2.23,2.41ZM22.56,2.12c0,.68.35,1.4,1.01,2.24.68-.4,1.06-1.09,1.06-1.99,0-.85-.34-1.57-1.06-1.57-.67,0-1.01.63-1.01,1.32Z"/>
+        <path transition:draw={{delay: 500+10+10+10+10}} class="cls-1" d="M31.29,9.5v-.07c.82,0,.86-.6.86-1.49V2.33c0-.89-.05-1.49-.86-1.49v-.07h3.5v.07c-.82,0-.86.6-.86,1.49v5.61c0,.89.05,1.49.86,1.49v.07h-3.5Z"/>
+        <path transition:draw={{delay: 500+10+10+10+10+10}} class="cls-1" d="M41.15,8.26c0,.77.04,1.17.53,1.17v.07h-2.73v-.07c.49,0,.53-.41.53-1.17v-2.88c0-.83-.14-1.39-.92-1.39-.34,0-.77.13-1.14.36v3.91c0,.77.04,1.17.53,1.17v.07h-2.73v-.07c.49,0,.53-.41.53-1.17v-3.43c0-.77-.2-.98-.61-1.13v-.07l2.24-.53h.05v1.13c.6-.6,1.37-1.15,2.18-1.15,1.03,0,1.56.67,1.56,1.87v3.31Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M46.25,8.44c-.58.73-1.38,1.21-2.12,1.21-.97,0-1.55-.49-1.55-1.69V3.76h-.62v-.17l.17-.08c.85-.4,1.48-.9,2.06-2.08h.07v1.79h1.9l-.2.54h-1.69v4.17c0,.62.3.94.84.94.36,0,.77-.23,1.08-.48l.07.05Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M51.49,7.97c-.49.85-1.24,1.68-2.58,1.68-1.8,0-2.73-1.46-2.73-3.18,0-1.91,1.25-3.39,3.02-3.39,1.46,0,2.35.98,2.28,2.52h-3.6v.12c0,1.86.54,3.08,1.83,3.08.71,0,1.32-.34,1.7-.88l.07.05ZM47.9,5.4h2.1c.1-1.32-.08-2.16-.84-2.16-.84,0-1.21,1.06-1.26,2.16Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M56.27,3.17l-.35,1.54h-.07c-.31-.35-.72-.53-1.07-.53-.22,0-.46.07-.71.31v3.77c0,.77.04,1.17.53,1.17v.07h-2.73v-.07c.49,0,.53-.41.53-1.17v-3.43c0-.77-.2-.98-.61-1.13v-.07l2.24-.53h.05v1.27c.53-.75,1.06-1.29,1.7-1.29.16,0,.32.02.49.1Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M61.91,8.68c-.19.37-.68.97-1.49.97s-.97-.56-1.01-1c-.42.58-1.13,1-1.82,1-.84,0-1.42-.52-1.42-1.29,0-.89.66-1.5,2.07-1.9l1.09-.3v-.74c0-.34,0-1.58-1.16-1.58-.77,0-1.37.54-1.7,1.19l-.07-.04c.31-1,1.22-1.91,2.59-1.91,1.27,0,1.99.8,1.99,2.11v2.84c0,.49,0,.86.37.86.25,0,.41-.18.48-.26l.07.05ZM59.34,8.56v-2.23l-.49.18c-.88.32-1.1.67-1.1,1.38,0,.65.35,1.03.79,1.03.26,0,.58-.16.8-.36Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M62,6.47c0-1.92,1.25-3.39,3.02-3.39.88,0,1.63.43,2.09.98l-.7,1.02h-.07c-.19-.95-.55-1.83-1.32-1.83-.94,0-1.32,1.18-1.32,2.55,0,1.75.6,2.97,1.76,2.97.76,0,1.35-.42,1.69-.92l.07.05c-.48.89-1.18,1.75-2.51,1.75-1.79,0-2.72-1.46-2.72-3.18Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M71.69,8.44c-.58.73-1.38,1.21-2.12,1.21-.97,0-1.55-.49-1.55-1.69V3.76h-.62v-.17l.17-.08c.85-.4,1.48-.9,2.06-2.08h.07v1.79h1.9l-.2.54h-1.69v4.17c0,.62.3.94.84.94.36,0,.77-.23,1.08-.48l.07.05Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M71.7,9.5v-.07c.49,0,.53-.41.53-1.17v-3.43c0-.77-.2-.98-.61-1.13v-.07l2.24-.53h.05v5.16c0,.77.04,1.17.53,1.17v.07h-2.73ZM72.04,1.32c0-.52.42-.95.96-.95s.95.43.95.95-.43.96-.95.96-.96-.42-.96-.96Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M80.21,7.97c-.49.85-1.24,1.68-2.58,1.68-1.8,0-2.73-1.46-2.73-3.18,0-1.91,1.25-3.39,3.02-3.39,1.46,0,2.35.98,2.28,2.52h-3.6v.12c0,1.86.54,3.08,1.83,3.08.71,0,1.32-.34,1.7-.88l.07.05ZM76.61,5.4h2.1c.1-1.32-.08-2.16-.84-2.16-.84,0-1.21,1.06-1.26,2.16Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M84.22,3.22h1.76v.07c-.4.07-.72.62-1.2,1.87l-1.75,4.55h-.1l-1.98-5.06c-.34-.83-.52-1.28-.92-1.36v-.07h2.89v.07c-.54.05-.55.47-.34,1.03l1.14,3.02.85-2.25c.47-1.22.17-1.71-.36-1.8v-.07Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M90.98,7.97c-.49.85-1.24,1.68-2.58,1.68-1.8,0-2.73-1.46-2.73-3.18,0-1.91,1.25-3.39,3.02-3.39,1.46,0,2.35.98,2.28,2.52h-3.6v.12c0,1.86.54,3.08,1.83,3.08.71,0,1.32-.34,1.7-.88l.07.05ZM87.39,5.4h2.1c.1-1.32-.08-2.16-.84-2.16-.84,0-1.21,1.06-1.26,2.16Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M102.65,7.94c.05.89.1,1.49.91,1.49v.07h-3.47v-.07c.82,0,.86-.6.82-1.49l-.33-6.15-2.65,7.71h-.1l-2.88-7.71-.28,5.22c-.08,1.42.26,2.4,1.08,2.42v.07h-2.33v-.07c.77-.06.96-1.02,1.03-2.42l.25-4.84c.05-.86-.38-1.22-.96-1.32v-.07h2.7l2.19,5.96,2.05-5.96h2.51v.07c-.82.07-.91.6-.86,1.49l.31,5.61Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M108.95,7.97c-.49.85-1.24,1.68-2.58,1.68-1.8,0-2.73-1.46-2.73-3.18,0-1.91,1.25-3.39,3.02-3.39,1.46,0,2.35.98,2.28,2.52h-3.6v.12c0,1.86.54,3.08,1.83,3.08.71,0,1.32-.34,1.7-.88l.07.05ZM105.35,5.4h2.1c.1-1.32-.08-2.16-.84-2.16-.84,0-1.21,1.06-1.26,2.16Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M115.14,7.92c0,.77.2,1.1.61,1.25v.07l-2,.41h-.05l-.22-1.01c-.41.56-1.01,1.01-1.77,1.01-1.32,0-2.33-1.21-2.33-3.09,0-2.12,1.27-3.48,3.11-3.48.36,0,.68.07.97.18v-1.5c0-.77-.2-.98-.61-1.13v-.07l2.24-.43h.05v7.8ZM113.46,8.46v-3.37c0-1.09-.3-1.85-1.02-1.85-.95,0-1.28,1.36-1.28,2.81,0,1.62.35,2.85,1.33,2.85.36,0,.7-.18.97-.44Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M116.06,9.5v-.07c.49,0,.53-.41.53-1.17v-3.43c0-.77-.2-.98-.61-1.13v-.07l2.24-.53h.05v5.16c0,.77.04,1.17.53,1.17v.07h-2.73ZM116.39,1.32c0-.52.42-.95.96-.95s.95.43.95.95-.43.96-.95.96-.96-.42-.96-.96Z"/>
+        <path transition:draw={{delay: 500}} class="cls-1" d="M124.83,8.68c-.19.37-.68.97-1.49.97s-.97-.56-1.01-1c-.42.58-1.13,1-1.82,1-.84,0-1.42-.52-1.42-1.29,0-.89.66-1.5,2.07-1.9l1.09-.3v-.74c0-.34,0-1.58-1.16-1.58-.77,0-1.37.54-1.7,1.19l-.07-.04c.31-1,1.22-1.91,2.59-1.91,1.27,0,1.99.8,1.99,2.11v2.84c0,.49,0,.86.37.86.25,0,.41-.18.48-.26l.07.05ZM122.26,8.56v-2.23l-.49.18c-.88.32-1.1.67-1.1,1.38,0,.65.35,1.03.79,1.03.26,0,.58-.16.8-.36Z"/>
+    </svg>
+        {/if}
+    <!-- <h2 class="text-[#F6F6EC] p-15">
+        MODERNE <br>
+        CARTOGRAFIE
+    </h2> -->
+</main>
 
-<style>
-    * {
-        font-family: "Inter" !important;
-    }
-</style>
+<section class="flex flex-col items-center justify-center w-full h-70 bg-[#F6F6EC]">
+    <AccordionItem header="Wie zijn 'De Geomaten'?">
+        Wij zijn <b>Gees</b> en <b>Josephine</b>. Tijdens onze master Geomatics aan de TU Delft ontdekten we hoe goed onze verschillende achtergronden elkaar aanvullen – Gees met Computer Science and Engineering, Josephine met Bouwkunde. Samen delen we een nieuwsgierigheid naar hoe data en ruimte elkaar beïnvloeden, en hoe je dat zichtbaar kunt maken met kaarten en visualisaties.
+    </AccordionItem>
+    <AccordionItem header="Wie doen 'De Geomaten'?"></AccordionItem>
+    <AccordionItem header="Kunnen jullie wat laten zien?"></AccordionItem>
+</section>
+<section class="w-full h-100 bg-[#C99EFF]"></section>
+<section class="w-full h-70 bg-[#F6F6EC]"></section>
+
+<footer class="flex flex-col items-center justify-center h-50 text-white">
+    <p>&copy; De Geomaten, 2025</p>
+</footer>

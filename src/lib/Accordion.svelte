@@ -21,7 +21,7 @@
   ];
 </script>
 
-<Accordion.Root class="w-full max-w-[500px]" type="multiple">
+<Accordion.Root class="w-full max-w-[500px] my-6" type="multiple" value={[4]}>
     <Accordion.Item
       value={1}
       class="border-dark-10 group border-b px-1.5"
@@ -97,6 +97,59 @@
       >
         <div class="pb-[25px]">
             veel.
+        </div>
+      </Accordion.Content>
+    </Accordion.Item>
+    <Accordion.Item
+      value={4}
+      class="border-dark-10 group border-b px-1.5"
+    >
+      <Accordion.Header>
+        <Accordion.Trigger
+          class="flex w-full flex-1 select-none items-center justify-between py-5 text-[15px] font-medium transition-all [&[data-state=open]>span>svg]:rotate-180"
+        >
+          <span class="w-full text-left">
+            Kunnen jullie wat dingen laten zien?
+          </span>
+          <span
+            class="hover:bg-dark-10 inline-flex size-8 items-center justify-center rounded-[7px] bg-transparent"
+          >
+            <CaretDown class="size-[18px] transition-transform duration-200" />
+          </span>
+        </Accordion.Trigger>
+      </Accordion.Header>
+      <Accordion.Content
+        class="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-[16px] tracking-[-0.01em]"
+      >
+        <div class="flex flex-col items-center">
+            <div class="bg-[#eee] max-w-[350px] w-full m-6 aspect-square ml-0"></div>
+
+        </div>
+      </Accordion.Content>
+    </Accordion.Item>
+    <Accordion.Item
+      value={5}
+      class="border-dark-10 group border-b px-1.5"
+    >
+      <Accordion.Header>
+        <Accordion.Trigger
+          class="flex w-full flex-1 select-none items-center justify-between py-5 text-[15px] font-medium transition-all [&[data-state=open]>span>svg]:rotate-180"
+        >
+          <span class="w-full text-left">
+            Waar zijn jullie nu mee bezig?
+          </span>
+          <span
+            class="hover:bg-dark-10 inline-flex size-8 items-center justify-center rounded-[7px] bg-transparent"
+          >
+            <CaretDown class="size-[18px] transition-transform duration-200" />
+          </span>
+        </Accordion.Trigger>
+      </Accordion.Header>
+      <Accordion.Content
+        class="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-[16px] tracking-[-0.01em]"
+      >
+        <div class="pb-[25px]">
+            Watertijdreis!
         </div>
       </Accordion.Content>
     </Accordion.Item>
