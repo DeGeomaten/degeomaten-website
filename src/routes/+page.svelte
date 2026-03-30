@@ -116,6 +116,8 @@
   </p>
 </section>
 
+<div class="m-auto text-center mt-10 text-[#6A0DAD]">~</div>
+
 <section
   class="flex justify-center w-[100%] sm:w-[75%] max-w-200 m-auto flex-col gap-4 mt-10 text-center px-4 text-[#6A0DAD]"
 >
