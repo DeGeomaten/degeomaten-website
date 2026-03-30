@@ -123,6 +123,7 @@
 
   <Button
     class="w-54 m-auto my-6 bg-[#6A0DAD] text-white hover:bg-[#A384FF] display"
+    onclick={() => (window.location.href = "mailto:contact@degeomaten.nl")}
   >
     <Mails class="size-4 mr-2" />
     Stuur ons een mailtje &rarr;
