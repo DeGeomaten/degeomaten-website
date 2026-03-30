@@ -148,7 +148,7 @@
   class="w-full h-50 bg-[#A384FF] mt-10 text-white flex flex-col items-center justify-center"
 >
   <img src="logo.svg" class="size-42 invert" alt="" />
-  <a class="underline">contact@degeomaten.nl</a>
+  <a class="underline" href="mailto:contact@degeomaten.nl">contact@degeomaten.nl</a>
   <p class="my-4">De Geomaten &copy; 2026</p>
 </footer>
 
