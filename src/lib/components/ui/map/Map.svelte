@@ -67,6 +67,7 @@
     const zoom = map.getZoom();
 
     map.setPitch(scrollOffset / 10);
+    map.setBearing(-scrollOffset / 40);
   });
 
   onMount(() => {
