@@ -166,7 +166,7 @@
   :global(img.footer-logo) {
     filter: brightness(1);
     opacity: 0.5;
-    transform: rotate(180deg);
+    /* transform: rotate(180deg); */
   }
 
   :global(*) {
