@@ -8,7 +8,11 @@
   import { Mails } from "lucide-svelte";
 
   let showPopup = $state(true);
+
+  let scrollY = $state(0);
 </script>
+
+<svelte:window bind:scrollY />
 
 <!-- <ModeWatcher /> -->
 
@@ -49,7 +53,7 @@
   <div
     class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#ffffff00,#005E0066)] z-10 pointer-events-none"
   ></div>
-  <Map center={[4.48, 51.92]} zoom={12}>
+  <Map center={[4.48, 51.92]} zoom={12} {scrollY}>
     <MapControls />
     {#if showPopup}
       <MapPopup
@@ -147,9 +151,9 @@
 </section>
 
 <footer
-  class="w-full h-50 bg-[#A384FF] mt-10 text-white flex flex-col items-center justify-center"
+  class="w-full h-60 bg-[#A384FF] mt-10 text-white flex flex-col items-center justify-center"
 >
-  <img src="logo.svg" class="footer-logo size-60" alt="" />
+  <img src="logo.svg" class="footer-logo my-15 size-40" alt="" />
   <a class="underline" href="mailto:contact@degeomaten.nl"
     >contact@degeomaten.nl</a
   >
@@ -162,6 +166,7 @@
   :global(img.footer-logo) {
     filter: brightness(1);
     opacity: 0.5;
+    transform: rotate(180deg);
   }
 
   :global(*) {

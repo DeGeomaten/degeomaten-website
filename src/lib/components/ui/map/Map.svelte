@@ -18,6 +18,7 @@
     center?: [number, number];
     zoom?: number;
     options?: Omit<MapLibreGL.MapOptions, "container" | "style">;
+    scrollY?: number;
   }
 
   const defaultStyles = {
@@ -32,6 +33,7 @@
     center = [13.405, 52.52],
     zoom = 11,
     options = {},
+    scrollY,
   }: Props = $props();
 
   let mapContainer: HTMLDivElement;
@@ -55,6 +57,16 @@
   setContext("map", {
     getMap: () => map,
     isLoaded: () => isReady,
+  });
+
+  $effect(() => {
+    const scrollOffset = scrollY ?? 0;
+    if (!map) return;
+
+    const center = map.getCenter();
+    const zoom = map.getZoom();
+
+    map.setPitch(scrollOffset / 8);
   });
 
   onMount(() => {
@@ -88,6 +100,10 @@
       attributionControl: false,
       ...options,
     });
+
+    // setTimeout(() => {
+    //   mapInstance.flyTo({ center, zoom, pitch: 45 });
+    // }, 500);
 
     mapInstance.on("load", () => {
       isLoaded = true;
