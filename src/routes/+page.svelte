@@ -149,7 +149,7 @@
 <footer
   class="w-full h-50 bg-[#A384FF] mt-10 text-white flex flex-col items-center justify-center"
 >
-  <img src="logo.svg" class="footer-logo size-50" alt="" />
+  <img src="logo.svg" class="footer-logo size-60" alt="" />
   <a class="underline" href="mailto:contact@degeomaten.nl"
     >contact@degeomaten.nl</a
   >
@@ -160,7 +160,7 @@
   @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Gidugu&family=Young+Serif&display=swap");
 
   :global(img.footer-logo) {
-    filter: brightness(0) invert(1);
+    filter: brightness(1);
     opacity: 0.5;
   }
 
