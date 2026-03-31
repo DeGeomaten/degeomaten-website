@@ -96,11 +96,13 @@
     kaartbladen (1865-1992). Gebruikers kunnen tijdreizen door de geschiedenis van
     waterbeheer.
   </p>
-  <div class="flex gap-4 mt-[-40px] justify-center items-center flex-wrap">
-    <img src="rce-logo.svg" class="size-32" alt="" />
-    <img src="stowa-logo.svg" class="size-24" alt="" />
+  <div class="flex gap-4 mt-[-30px] justify-center items-center flex-wrap">
+    <img src="rce-logo.svg" class="size-38" alt="" />
+  </div>
+  <div class="flex gap-4 mt-[-70px] justify-center items-center flex-wrap">
     <img src="tu-logo.svg" class="size-28" alt="" />
     <img src="allmaps-logo.svg" class="size-12" alt="" />
+    <img src="stowa-logo.svg" class="size-22" alt="" />
   </div>
   <p class="text-[#6A0DAD]">
     &rarr;
