@@ -19,8 +19,10 @@
 <header
   class="relative h-50 bg-[linear-gradient(180deg,#A384FF22_0%,rgba(255,255,255,0.1)_100%)] flex justify-end p-2"
 >
-  <div class="absolute inset-0 flex flex-col items-center justify-center gap-1">
-    <img src="logo.svg" alt="Logo" class="logo size-64" />
+  <div
+    class="absolute inset-0 flex flex-col items-center justify-center gap-1 mt-4"
+  >
+    <img src="logo.svg" alt="Logo" class="logo size-68" />
   </div>
 
   <!-- <div class="z-10">
@@ -88,6 +90,12 @@
   class="flex justify-center w-[100%] sm:w-[75%] max-w-200 m-auto flex-col gap-4 mt-10 text-center px-4"
 >
   <h1 class="text-2xl text-[#C99EFF]">Recente projecten</h1>
+  <div class="flex justify-center w-full my-5">
+    <video class="w-1/2 rounded-xl" muted autoplay>
+      <source src="watertijdreis.mov" />
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
   <p class="text-[#6A0DAD]">
     &rarr;
     <a href="https://watertijdreis.nl" class="underline font-bold"
